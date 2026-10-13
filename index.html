@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Furniro — Furniture Store</title>
+    <meta name="description"
+        content="Furniro furniture store landing page. Front-end demo built with HTML, CSS and vanilla JavaScript.">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 32'><path d='M2 30 L17 4 L25 18 L33 4 L48 30 H40 L33 17 L25 30 L17 17 L10 30 Z' fill='%23B88E2F'/></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ============ HEADER ============ -->
+    <header class="header" id="header">
+        <div class="container header__inner">
+            <a href="#top" class="logo" aria-label="Furniro home">
+                <svg class="logo__mark" viewBox="0 0 50 32" aria-hidden="true">
+                    <path d="M2 30 L17 4 L25 18 L33 4 L48 30 H40 L33 17 L25 30 L17 17 L10 30 Z" />
+                </svg>
+                <span>Furniro</span>
+            </a>
+
+            <nav class="nav" id="nav" aria-label="Main">
+                <ul class="nav__list">
+                    <li><a href="#top" class="nav__link">Home</a></li>
+                    <li><a href="#products" class="nav__link">Shop</a></li>
+                    <li><a href="#tips" class="nav__link">About</a></li>
+                    <li><a href="#footer" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header__icons">
+                <button class="icon-btn" type="button" aria-label="Account"
+                    data-toast="Account page is not part of this demo">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="10" cy="8" r="4" />
+                        <path d="M3 21c0-4 3.1-7 7-7s7 3 7 7" />
+                        <path d="M19 8v6M16 11h6" />
+                    </svg>
+                </button>
+                <button class="icon-btn" type="button" aria-label="Search" id="searchToggle" aria-expanded="false"
+                    aria-controls="searchBar">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="7" />
+                        <path d="m20 20-4-4" />
+                    </svg>
+                </button>
+                <button class="icon-btn" type="button" aria-label="Wishlist" id="wishlistBtn">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 20s-7.5-4.6-9.2-9.3C1.6 7.3 3.8 4 7.2 4c2 0 3.6 1.1 4.8 2.8C13.2 5.1 14.8 4 16.8 4c3.4 0 5.6 3.3 4.4 6.7C19.5 15.4 12 20 12 20Z" />
+                    </svg>
+                    <span class="badge-count" id="wishCount" hidden>0</span>
+                </button>
+                <button class="icon-btn" type="button" aria-label="Open cart" id="cartBtn" aria-controls="cart">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M2 3h3l2.6 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.5L21.5 7H6" />
+                        <circle cx="10" cy="20.5" r="1.3" />
+                        <circle cx="18" cy="20.5" r="1.3" />
+                    </svg>
+                    <span class="badge-count" id="cartCount" hidden>0</span>
+                </button>
+                <button class="burger" type="button" id="burger" aria-label="Open menu" aria-expanded="false"
+                    aria-controls="nav">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="search" id="searchBar" hidden>
+            <div class="container">
+                <label class="visually-hidden" for="searchInput">Search products</label>
+                <input class="search__input" id="searchInput" type="search" placeholder="Search products, e.g. sofa"
+                    autocomplete="off">
+            </div>
+        </div>
+    </header>
+
+    <main id="top">
+
+        <!-- ============ HERO ============ -->
+        <section class="hero">
+            <div class="hero__media">
+                <img src="images/hero.jpg" alt="Rattan armchair next to a palm plant in a bright room" width="1056"
+                    height="1023" fetchpriority="high">
+            </div>
+            <div class="container hero__container">
+                <div class="hero__card">
+                    <p class="hero__kicker">New Arrival</p>
+                    <h1 class="hero__title">Discover Our New&nbsp;Collection</h1>
+                    <p class="hero__text">Natural rattan, warm oak and soft linen. Pieces that settle into any room and
+                        stay there for years.</p>
+                    <a href="#products" class="btn btn--primary">Buy now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ BROWSE THE RANGE ============ -->
+        <section class="range section" aria-labelledby="range-title">
+            <div class="container">
+                <header class="section-head">
+                    <h2 class="section-title" id="range-title">Browse The Range</h2>
+                    <p class="section-sub">Pick a room and see what fits it.</p>
+                </header>
+                <div class="range__grid">
+                    <a href="#products" class="range__item" data-filter="dining">
+                        <div class="range__img"><img src="images/range-dining.jpg"
+                                alt="Small table with a knitted throw" loading="lazy"></div>
+                        <h3>Dining</h3>
+                    </a>
+                    <a href="#products" class="range__item" data-filter="living">
+                        <div class="range__img"><img src="images/range-living-room.jpg"
+                                alt="Beige sofa with cushions and a wooden stool" loading="lazy"></div>
+                        <h3>Living</h3>
+                    </a>
+                    <a href="#products" class="range__item" data-filter="bedroom">
+                        <div class="range__img"><img src="images/range-bedroom.jpg"
+                                alt="Bed with rattan basket and a floor lamp" loading="lazy"></div>
+                        <h3>Bedroom</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ PRODUCTS ============ -->
+        <section class="products section" id="products" aria-labelledby="products-title">
+            <div class="container">
+                <header class="section-head">
+                    <h2 class="section-title" id="products-title">Our Products</h2>
+                </header>
+
+                <div class="filters" role="group" aria-label="Filter by room">
+                    <button class="chip is-active" type="button" data-filter="all">All</button>
+                    <button class="chip" type="button" data-filter="dining">Dining</button>
+                    <button class="chip" type="button" data-filter="living">Living</button>
+                    <button class="chip" type="button" data-filter="bedroom">Bedroom</button>
+                </div>
+
+                <ul class="products__grid" id="productsGrid"></ul>
+                <p class="products__empty" id="productsEmpty" hidden>No products match your search. Try another word or
+                    pick “All”.</p>
+
+                <div class="products__more">
+                    <button class="btn btn--outline" type="button" id="showMore">Show more</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ TIPS & TRICKS ============ -->
+        <section class="tips section" id="tips" aria-labelledby="tips-title">
+            <div class="container">
+                <header class="section-head">
+                    <h2 class="section-title" id="tips-title">Tips &amp; Tricks</h2>
+                </header>
+
+                <div class="slider" id="slider">
+                    <button class="slider__arrow slider__arrow--prev" type="button" aria-label="Previous article">
+                        <svg viewBox="0 0 24 24">
+                            <path d="m15 6-6 6 6 6" />
+                        </svg>
+                    </button>
+                    <ul class="slider__track" id="sliderTrack">
+                        <li class="tip">
+                            <a href="#tips" class="tip__link">
+                                <div class="tip__img"><img src="images/tip-1.jpg" alt="Couple laughing on a sofa"
+                                        loading="lazy"></div>
+                                <h3 class="tip__title">How to create a living room to love</h3>
+                                <time datetime="2026-01-20">20 Jan 2026</time>
+                            </a>
+                        </li>
+                        <li class="tip">
+                            <a href="#tips" class="tip__link">
+                                <div class="tip__img"><img src="images/tip-2.jpg" alt="Desk with laptop and pegboard"
+                                        loading="lazy"></div>
+                                <h3 class="tip__title">Solution for clean look working space</h3>
+                                <time datetime="2026-01-10">10 Jan 2026</time>
+                            </a>
+                        </li>
+                        <li class="tip">
+                            <a href="#tips" class="tip__link">
+                                <div class="tip__img"><img src="images/tip-3.jpg" alt="Bright kitchen with an island"
+                                        loading="lazy"></div>
+                                <h3 class="tip__title">Make your cooking activity more fun with good setup</h3>
+                                <time datetime="2026-01-20">20 Jan 2026</time>
+                            </a>
+                        </li>
+                        <li class="tip">
+                            <a href="#tips" class="tip__link">
+                                <div class="tip__img"><img src="images/g-desk.jpg"
+                                        alt="White desk with laptop and retro radio" loading="lazy"></div>
+                                <h3 class="tip__title">Small home office ideas that actually work</h3>
+                                <time datetime="2026-01-05">5 Jan 2026</time>
+                            </a>
+                        </li>
+                    </ul>
+                    <button class="slider__arrow slider__arrow--next" type="button" aria-label="Next article">
+                        <svg viewBox="0 0 24 24">
+                            <path d="m9 6 6 6-6 6" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="slider__dots" id="sliderDots" role="tablist" aria-label="Choose article"></div>
+            </div>
+        </section>
+
+        <!-- ============ GALLERY ============ -->
+        <section class="gallery-section" aria-labelledby="gallery-title">
+            <header class="section-head">
+                <p class="section-sub">Share your setup with</p>
+                <h2 class="section-title section-title--lg" id="gallery-title">#FurniroFurniture</h2>
+            </header>
+
+            <div class="gallery">
+                <div class="gallery__col gallery__col--left">
+                    <div class="gallery__row gallery__row--end">
+                        <figure class="g g--shelf"><img src="images/g-shelf.jpg" alt="Shelf with plants" loading="lazy">
+                        </figure>
+                        <figure class="g g--desk"><img src="images/g-desk.jpg" alt="Desk with laptop and radio"
+                                loading="lazy"></figure>
+                    </div>
+                    <div class="gallery__row">
+                        <figure class="g g--chair"><img src="images/g-chair.jpg" alt="Mustard velvet armchair"
+                                loading="lazy"></figure>
+                        <figure class="g g--stools"><img src="images/g-stools.jpg"
+                                alt="Two wooden stools with vase and camera" loading="lazy"></figure>
+                    </div>
+                </div>
+                <div class="gallery__col gallery__col--mid">
+                    <figure class="g g--dining"><img src="images/g-dining.jpg" alt="Dining room with white chairs"
+                            loading="lazy"></figure>
+                </div>
+                <div class="gallery__col gallery__col--right">
+                    <figure class="g g--bed"><img src="images/g-bed.jpg" alt="Bedroom with upholstered headboard"
+                            loading="lazy"></figure>
+                    <div class="gallery__row">
+                        <figure class="g g--vase"><img src="images/g-vase.jpg" alt="Frame and white vase"
+                                loading="lazy"></figure>
+                        <figure class="g g--kitchen"><img src="images/g-kitchen.jpg" alt="Tiled kitchen wall"
+                                loading="lazy"></figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer" id="footer">
+        <div class="container footer__grid">
+            <div class="footer__about">
+                <p class="footer__brand">Furniro.</p>
+                <p>Worldwide furniture store since 2020. We sell over 1000+ branded products on our website.</p>
+                <p class="footer__contact">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z" />
+                        <circle cx="12" cy="9.5" r="2.5" />
+                    </svg>
+                    Lorem Ipsum, Sierra
+                </p>
+                <p class="footer__contact">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" />
+                    </svg>
+                    <a href="tel:+62894563455">+6289 456 3455</a>
+                </p>
+                <p><a href="#top">www.furniro.com</a></p>
+            </div>
+
+            <nav class="footer__col" aria-label="Menu">
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#top">Rooms</a></li>
+                    <li><a href="#tips">Inspirations</a></li>
+                    <li><a href="#footer">About Us</a></li>
+                    <li><a href="#footer">Terms &amp; Policy</a></li>
+                </ul>
+            </nav>
+
+            <nav class="footer__col" aria-label="Account">
+                <h3>Account</h3>
+                <ul>
+                    <li><a href="#top">My Account</a></li>
+                    <li><a href="#top" data-open-cart>Checkout</a></li>
+                    <li><a href="#top" data-open-cart>My Cart</a></li>
+                    <li><a href="#products">My Catalog</a></li>
+                </ul>
+            </nav>
+
+            <nav class="footer__col" aria-label="Social">
+                <h3>Stay Connected</h3>
+                <ul>
+                    <li><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+                    <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+                    <li><a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer__col footer__news">
+                <h3>Stay Updated</h3>
+                <form class="subscribe" id="subscribeForm" novalidate>
+                    <label class="visually-hidden" for="subscribeEmail">Email</label>
+                    <input id="subscribeEmail" type="email" placeholder="Enter your email" autocomplete="email"
+                        required>
+                    <button type="submit" aria-label="Subscribe">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M21 3 10 14" />
+                            <path d="m21 3-7 18-4-7-7-4 18-7Z" />
+                        </svg>
+                    </button>
+                </form>
+                <p class="field-error" id="subscribeError" aria-live="polite"></p>
+            </div>
+        </div>
+        <div class="container footer__bottom">
+            <p>© 2026 Furniro. Front-end demo, no real orders. Design: Furniro Figma Community template.</p>
+        </div>
+    </footer>
+
+    <!-- ============ CART DRAWER ============ -->
+    <div class="overlay" id="overlay" hidden></div>
+
+    <aside class="cart" id="cart" aria-label="Shopping cart" aria-hidden="true">
+        <div class="cart__head">
+            <h2>Shopping Cart</h2>
+            <button class="icon-btn" type="button" id="cartClose" aria-label="Close cart">
+                <svg viewBox="0 0 24 24">
+                    <path d="M6 6l12 12M18 6 6 18" />
+                </svg>
+            </button>
+        </div>
+        <ul class="cart__list" id="cartList"></ul>
+        <div class="cart__empty" id="cartEmpty">
+            <p>Your cart is empty.</p>
+            <a href="#products" class="btn btn--outline" id="cartBrowse">Browse products</a>
+        </div>
+        <div class="cart__foot" id="cartFoot">
+            <p class="cart__total"><span>Subtotal</span><strong id="cartTotal">Rp 0</strong></p>
+            <button class="btn btn--primary btn--block" type="button" id="checkoutBtn">Checkout</button>
+        </div>
+    </aside>
+
+    <!-- ============ CHECKOUT MODAL ============ -->
+    <div class="modal" id="checkout" role="dialog" aria-modal="true" aria-labelledby="checkout-title" hidden>
+        <div class="modal__box">
+            <button class="icon-btn modal__close" type="button" id="checkoutClose" aria-label="Close">
+                <svg viewBox="0 0 24 24">
+                    <path d="M6 6l12 12M18 6 6 18" />
+                </svg>
+            </button>
+            <div id="checkoutFormWrap">
+                <h2 id="checkout-title">Checkout</h2>
+                <p class="modal__note">Demo checkout: no payment is taken.</p>
+                <form class="form" id="checkoutForm" novalidate>
+                    <div class="form__field">
+                        <label for="cName">Full name</label>
+                        <input id="cName" name="name" type="text" autocomplete="name" required minlength="2">
+                        <p class="field-error" aria-live="polite"></p>
+                    </div>
+                    <div class="form__field">
+                        <label for="cEmail">Email</label>
+                        <input id="cEmail" name="email" type="email" autocomplete="email" required>
+                        <p class="field-error" aria-live="polite"></p>
+                    </div>
+                    <div class="form__field">
+                        <label for="cPhone">Phone</label>
+                        <input id="cPhone" name="phone" type="tel" autocomplete="tel" required
+                            placeholder="+62 812 3456 7890">
+                        <p class="field-error" aria-live="polite"></p>
+                    </div>
+                    <div class="form__field">
+                        <label for="cAddress">Delivery address</label>
+                        <textarea id="cAddress" name="address" rows="3" required minlength="10"></textarea>
+                        <p class="field-error" aria-live="polite"></p>
+                    </div>
+                    <p class="cart__total"><span>Total</span><strong id="checkoutTotal">Rp 0</strong></p>
+                    <button class="btn btn--primary btn--block" type="submit">Place order</button>
+                </form>
+            </div>
+            <div class="modal__success" id="checkoutSuccess" hidden>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="m7.5 12.5 3 3 6-6.5" />
+                </svg>
+                <h2>Order placed</h2>
+                <p>Thanks! In a real store you would now get a confirmation email.</p>
+                <button class="btn btn--primary" type="button" id="successClose">Continue shopping</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
