@@ -2,7 +2,7 @@
 
 Front-end demo of a furniture store landing page, built with **HTML, CSS and vanilla JavaScript** (no frameworks, no build step).
 
-**Live demo:** _add your GitHub Pages link here_
+**Live demo:** https://strukk311.github.io/furniture-store-landing/
 
 ## Features
 - Responsive layout: desktop, tablet, mobile (burger menu, touch-friendly product cards)
